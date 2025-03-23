@@ -13,6 +13,8 @@ namespace GTPlugin
         {
             // Just use OnGameInitialized() it is better
             Utilla.Events.GameInitialized += OnGameInitialized;
+            NetworkSystem.Instance.OnMultiplayerStarted += OnJoin;
+            NetworkSystem.Instance.OnReturnedToSinglePlayer += OnLeave;
         }
 
         void OnGameInitialized(object sender, EventArgs e)
@@ -23,25 +25,22 @@ namespace GTPlugin
 
         void Update()
         {
-            // This is called every frame
+
+        }
+
+        void OnJoin()
+        {
             if (NetworkSystem.Instance.GameModeString.Contains("MODDED"))
             {
                 inAllowedRoom = true;
-            }
-            else
-            {
-                inAllowedRoom = false;
-            }
-
-
-            if (inAllowedRoom == true)
-            {
                 // Activate your mod here
             }
-            else
-            {
-                // Deactivate your mod here
-            }
+        }
+
+        void OnLeave()
+        {
+            inAllowedRoom = false;
+            // Deactivate your mod here
         }
     }
 }
