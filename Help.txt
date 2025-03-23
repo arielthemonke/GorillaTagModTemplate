@@ -1,0 +1,6 @@
+- To change the mod name and description open the PluginInfo.cs file and change the values of the ProjectName and Description variables.
+- To change the DLL file name, change the name of the .csproj file to the desired name.
+- To compile this project click ctrl+shift+b or go to Build -> Build Solution.
+- The compiled DLL file will be automatically placed in your plugins folder.
+- If you are getting errors while compiling, change the directory in <GamePath> in Directory.Build.props to your game's directory.
+- If you need any other help people in https://discord.gg/monkemod will be able to help you.
